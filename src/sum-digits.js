@@ -12,10 +12,21 @@ const { NotImplementedError } = require('../extensions/index.js');
  * For 91, the result should be 1 (9 + 1 = 10, 1 + 0 = 1)
  *
  */
-function getSumOfDigits(/* n */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function getSumOfDigits(kulki) {
+  const duze = kulki.toString();
+  let male = 0;
+  
+  for(let i = 0; i < duze.length; i++){
+    male = male + parseInt(duze[i]);
+  }
+  
+  while(male>=10){
+  male = getSumOfDigits(male);
+  }
+  return male;
 }
+console.log(getSumOfDigits(100));
+
 
 module.exports = {
   getSumOfDigits
